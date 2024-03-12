@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Repository.Conta
+namespace Spotify.Repository.Mapping.Conta
 {
     public class PlaylistMapping : IEntityTypeConfiguration<Playlist>
 

@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Repository.Notificacao
+namespace Spotify.Repository.Mapping.Notificacao
 {
-    public class NotificacaoMapping : IEntityTypeConfiguration<Spotify.Domain.Notificacao.Notificacao>
+    public class NotificacaoMapping : IEntityTypeConfiguration<Domain.Notificacao.Notificacao>
     {
         public void Configure(EntityTypeBuilder<Domain.Notificacao.Notificacao> builder)
         {

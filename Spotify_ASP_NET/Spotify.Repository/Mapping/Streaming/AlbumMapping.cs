@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Repository.Streaming
+namespace Spotify.Repository.Mapping.Streaming
 {
     public class AlbumMapping : IEntityTypeConfiguration<Album>
     {

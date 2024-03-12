@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Repository.Streaming
+namespace Spotify.Repository.Mapping.Streaming
 {
     public class BandaMapping : IEntityTypeConfiguration<Banda>
     {
@@ -20,7 +20,7 @@ namespace Spotify.Repository.Streaming
             builder.Property(x => x.Nome).IsRequired().HasMaxLength(50);
             builder.Property(x => x.Descricao).IsRequired().HasMaxLength(50);
             builder.Property(x => x.Backdrop).IsRequired().HasMaxLength(50);
-            builder.HasMany<Album>(x => x.Albums).WithOne().OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(x => x.Albums).WithOne().OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
