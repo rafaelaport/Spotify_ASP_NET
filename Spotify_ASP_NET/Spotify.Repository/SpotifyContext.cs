@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Spotify.Repository
 {
-    public class SpotifyLikeContext : DbContext
+    public class SpotifyContext : DbContext
     {
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Assinatura> Assinaturas { get; set; }
@@ -24,7 +24,7 @@ namespace Spotify.Repository
         public DbSet<Musica> Musicas { get; set; }
         public DbSet<Plano> Planos { get; set; }
 
-        public SpotifyLikeContext(DbContextOptions<SpotifyLikeContext> options) : base(options)
+        public SpotifyContext(DbContextOptions<SpotifyContext> options) : base(options)
         {
 
         }
@@ -33,7 +33,7 @@ namespace Spotify.Repository
         //Escrever protected internal e vai aparecer OnModelCreating
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(SpotifyLikeContext).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(SpotifyContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }
 
