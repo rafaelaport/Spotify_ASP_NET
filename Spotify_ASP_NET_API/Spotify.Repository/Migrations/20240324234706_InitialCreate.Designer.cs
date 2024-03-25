@@ -12,8 +12,8 @@ using Spotify.Repository;
 namespace Spotify.Repository.Migrations
 {
     [DbContext(typeof(SpotifyContext))]
-    [Migration("20240312203012_InitialDatabase")]
-    partial class InitialDatabase
+    [Migration("20240324234706_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
