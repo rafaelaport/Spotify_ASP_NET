@@ -1,13 +1,10 @@
-﻿using Spotify.Domain.Core.ValueObject;
+﻿using Spotify.Domain.Conta.Agreggates;
+using Spotify.Domain.Core.ValueObject;
+using Spotify.Domain.Notificacao;
 using Spotify.Domain.Streaming.Agreggates;
 using Spotify.Domain.Transacao.Agreggates;
 using Spotify.Domain.Transacao.ValueObject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+using Spotify.Domain.Core.Extension;
 
 namespace Spotify.Domain.Conta.Agreggates
 {
@@ -92,13 +89,7 @@ namespace Spotify.Domain.Conta.Agreggates
 
         private String CriptografarSenha(string senhaAberta)
         {
-            SHA256 criptoProvider = SHA256.Create();
-
-            byte[] btexto = Encoding.UTF8.GetBytes(senhaAberta);
-
-            var criptoResult = criptoProvider.ComputeHash(btexto);
-
-            return Convert.ToHexString(criptoResult);
+            return senhaAberta.HashSHA256();
         }
     }
 }

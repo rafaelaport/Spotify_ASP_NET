@@ -62,9 +62,21 @@ namespace Spotify.Api.Controllers
 
 
         [HttpGet("{idBanda}/albums/{id}")]
-        public IActionResult ObterAlbum(Guid idBanda, Guid id)
+        public IActionResult ObterAlbumPorId(Guid idBanda, Guid id)
         {
-            var result = this._bandaService.ObterAlbum(idBanda, id);
+            var result = this._bandaService.ObterAlbumPorId(idBanda, id);
+
+            if (result == null)
+                return NotFound();
+
+            return Ok(result);
+
+        }
+
+        [HttpGet("{idBanda}/albums")]
+        public IActionResult ObterAlbuns(Guid idBanda)
+        {
+            var result = this._bandaService.ObterAlbum(idBanda);
 
             if (result == null)
                 return NotFound();

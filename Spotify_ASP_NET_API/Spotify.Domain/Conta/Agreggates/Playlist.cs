@@ -1,4 +1,5 @@
 ﻿using Spotify.Domain.Streaming.Agreggates;
+using Spotify.Domain.Conta.Agreggates;
 using System;
 using System.Collections.Generic;
 using System.Linq;

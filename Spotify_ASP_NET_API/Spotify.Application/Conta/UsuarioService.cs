@@ -4,6 +4,8 @@ using Spotify.Domain.Conta.Agreggates;
 using Spotify.Domain.Streaming.Agreggates;
 using Spotify.Domain.Transacao.Agreggates;
 using Spotify.Repository.Repository;
+using Spotify.Domain.Conta.Agreggates;
+using Spotify.Domain.Core.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +55,13 @@ namespace Spotify.Application.Conta
         public UsuarioDto Obter(Guid id)
         {
             var usuario = this.UsuarioRepository.GetById(id);
+            var result = this.Mapper.Map<UsuarioDto>(usuario);
+            return result;
+        }
+
+        public UsuarioDto Autenticar(String email, String senha)
+        {
+            var usuario = this.UsuarioRepository.Find(x => x.Email == email && x.Senha == senha.HashSHA256()).FirstOrDefault();
             var result = this.Mapper.Map<UsuarioDto>(usuario);
             return result;
         }
