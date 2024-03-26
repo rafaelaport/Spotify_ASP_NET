@@ -51,5 +51,9 @@ export class LoginComponent {
 
   }
 
+  public criarUsuario() {
+    this.router.navigate(["usuario"]);
+  }
+
 
 }

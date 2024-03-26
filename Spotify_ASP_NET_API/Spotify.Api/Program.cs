@@ -28,10 +28,14 @@ builder.Services.AddAutoMapper(typeof(UsuarioProfile).Assembly);
 builder.Services.AddScoped<UsuarioRepository>();
 builder.Services.AddScoped<PlanoRepository>();
 builder.Services.AddScoped<BandaRepository>();
+builder.Services.AddScoped<CartaoRepository>();
 
 //Services
 builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<BandaService>();
+builder.Services.AddScoped<PlanoService>();
+builder.Services.AddScoped<CartaoService>();
+
 
 
 var app = builder.Build();

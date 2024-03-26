@@ -1,0 +1,60 @@
+<div class="example-container" style="margin-left: 15px;">
+    <mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error>
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput
+             placeholder="Informe o nome..."
+             [formControl]="nome"
+             required>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput
+               placeholder="Informe o email..."
+               [formControl]="email"
+               required>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+        <mat-label>Data de Nascimento</mat-label>
+        <input matInput
+               placeholder="Informe a data de nascimento..."
+               [formControl]="dataNascimento"
+               required>
+      </mat-form-field>
+      <br />
+    <mat-form-field>
+        <mat-label>Senha</mat-label>
+        <input matInput
+               type="password"
+               placeholder="Informe a senha..."
+               [formControl]="senha"
+               required>     
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+        <mat-label>Plano</mat-label>
+        <mat-select [formControl]="plano">
+          @for (item of planosCadastrados; track item) {
+            <mat-option 
+            [value]="item.id"
+            >{{item.nome}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Cartão</mat-label>
+        <mat-select [formControl]="cartao">
+          @for (item of cartoesCadastrados; track item) {
+            <mat-option 
+            [value]="item.id"
+            >{{item.numero}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <br />
+    <button mat-raised-button color="primary" (click)="criarUsuario();">Criar Usuário</button>
+
+</div>
