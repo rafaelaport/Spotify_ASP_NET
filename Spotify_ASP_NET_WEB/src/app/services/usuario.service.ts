@@ -19,13 +19,18 @@ export class UsuarioService {
     });
   }
 
-  public criarUsuario(nome: String, email:String, senha: String, dataNascimento: String, plano: String) : Observable<Usuario> {
+  public criarUsuario(nome: String, email:String, senha: String, dataNascimento: String, plano: String, cartao: String, limite: String) : Observable<Usuario> {
     return this.http.post<Usuario>(`${this.url}`, {
       nome: nome,
       email: email,
       senha: senha,
-      dataNascimento: dataNascimento,
-      plano: plano
+      //dtNascimento: dataNascimento,
+      planoId: plano,
+      cartao: {
+        limite: limite,
+        numero: cartao
+      },
+      
     });
   }
 

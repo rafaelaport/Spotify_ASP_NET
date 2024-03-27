@@ -22,7 +22,7 @@ namespace Spotify.Application.Conta.Dto
         [Required]
         public string Senha { get; set; }
 
-        [Required]
+        //[Required]
         public DateTime DtNascimento { get; set; }
 
         public Guid PlanoId { get; set; }

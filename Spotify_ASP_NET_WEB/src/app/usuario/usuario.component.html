@@ -20,8 +20,7 @@
         <mat-label>Data de Nascimento</mat-label>
         <input matInput
                placeholder="Informe a data de nascimento..."
-               [formControl]="dataNascimento"
-               required>
+               [formControl]="dataNascimento">
       </mat-form-field>
       <br />
     <mat-form-field>
@@ -45,16 +44,21 @@
       </mat-form-field>
       <br />
       <mat-form-field>
-        <mat-label>Cartão</mat-label>
-        <mat-select [formControl]="cartao">
-          @for (item of cartoesCadastrados; track item) {
-            <mat-option 
-            [value]="item.id"
-            >{{item.numero}}</mat-option>
-          }
-        </mat-select>
-      </mat-form-field>
+        <mat-label>Número do Cartão</mat-label>
+        <input matInput
+               placeholder="Informe o número do cartão..."
+               [formControl]="cartao"
+               required>     
+    </mat-form-field>
       <br />
+      <mat-form-field>
+        <mat-label>Limite Inicial do Cartão</mat-label>
+        <input matInput
+               placeholder="Informe o limite do cartão..."
+               [formControl]="limite"
+               required>     
+    </mat-form-field>
+    <br />
     <button mat-raised-button color="primary" (click)="criarUsuario();">Criar Usuário</button>
 
 </div>

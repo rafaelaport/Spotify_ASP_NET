@@ -26,12 +26,16 @@ namespace Spotify.Domain.Conta.Agreggates
 
         public void CriarConta(string nome, string email, string senha, DateTime dtNascimento, Plano plano, Cartao cartao)
         {
+            this.Id = Guid.NewGuid();
             this.Nome = nome;
             this.Email = email;
             this.DtNascimento = dtNascimento;
 
             //Criptografar a senha
             this.Senha = this.CriptografarSenha(senha);
+
+            cartao.Id = Guid.NewGuid();
+            cartao.Ativo = true;
 
             //Assinar um plano
             this.AssinarPlano(plano, cartao);
