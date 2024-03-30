@@ -19,6 +19,7 @@
     <mat-form-field>
         <mat-label>Data de Nascimento</mat-label>
         <input matInput
+               type="date"
                placeholder="Informe a data de nascimento..."
                [formControl]="dataNascimento">
       </mat-form-field>
@@ -45,6 +46,7 @@
       <br />
       <mat-form-field>
         <mat-label>Número do Cartão</mat-label>
+        
         <input matInput
                placeholder="Informe o número do cartão..."
                [formControl]="cartao"
@@ -54,6 +56,7 @@
       <mat-form-field>
         <mat-label>Limite Inicial do Cartão</mat-label>
         <input matInput
+               currencyMask
                placeholder="Informe o limite do cartão..."
                [formControl]="limite"
                required>     

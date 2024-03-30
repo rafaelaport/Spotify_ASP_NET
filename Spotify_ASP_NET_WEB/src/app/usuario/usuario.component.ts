@@ -3,17 +3,25 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {  MatDialog } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { UsuarioService } from '../services/usuario.service';
 import { Router } from '@angular/router';
 import { PlanoService } from '../services/plano.service';
 import { Cartao } from '../model/cartao';
+import { DialogElementsExampleDialogComponent } from '../core/dialog-elements-example-dialog/dialog-elements-example-dialog.component';
 
 @Component({
   selector: 'app-usuario',
   standalone: true,
-  imports: [MatSelectModule, MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, CommonModule, MatButtonModule],
+  imports: [MatSelectModule, 
+            MatFormFieldModule, 
+            MatInputModule, 
+            FormsModule, 
+            ReactiveFormsModule, 
+            CommonModule, 
+            MatButtonModule],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css'
 })
@@ -30,7 +38,8 @@ export class UsuarioComponent {
 
   constructor(private usuarioService: UsuarioService,
     private planoService: PlanoService,
-    private router: Router) {
+    private router: Router,
+    public dialog: MatDialog) {
 
   }
 
@@ -61,15 +70,20 @@ export class UsuarioComponent {
     let limiteValue = this.limite.getRawValue() as String;
 
     this.usuarioService.criarUsuario(nomeValue, emailValue, senhaValue, dataNascientoValue, planoValue, cartaoValue, limiteValue).subscribe(
-      {
-        error: (e) => {
-          if (e.error) {
-            this.errorMessage = e.error.error;
-          }
+      data => {
+        if (data) {
+          this.openDialog();
+        }
+      },
+      (error): any => {
+        if (error.error) {
+          this.errorMessage = error.error.error;
         }
       });
+  } 
 
-
+  openDialog() {
+    this.dialog.open(DialogElementsExampleDialogComponent);
   }
 
 }
